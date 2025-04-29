@@ -91,3 +91,13 @@ function toggleMusic() {
     }
     musicPlaying = !musicPlaying;
 }
+
+document.body.addEventListener('click', () => {
+    const bgMusic = document.getElementById('bgMusic');
+    if (bgMusic.paused) {
+        bgMusic.play().catch(err => {
+            console.log("เล่นเพลงไม่สำเร็จ: ", err);
+        });
+    }
+}, { once: true });
+
