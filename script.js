@@ -6,7 +6,7 @@ const questions = [
     "คุณชอบช่วงเวลาไหนที่สุดที่เราใช้เวลาด้วยกัน?"
 ];
 
-const startDate = new Date('2022-01-01'); // ตั้งวันคบกัน
+const startDate = new Date('2025-04-14'); // ตั้งวันคบกัน
 const today = new Date();
 const diffTime = Math.abs(today - startDate);
 const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
