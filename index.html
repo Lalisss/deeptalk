@@ -13,10 +13,29 @@
 
     <!-- เพลงถูกลบออก -->
 
-    <div class="question-box">
-      <p id="question">กดปุ่มเพื่อเริ่มคุยกัน</p>
-    </div>
-    <button onclick="newQuestion()" class="primary">สุ่มคำถาม</button>
+   <div class="question-box">
+  <p id="question">กดปุ่มเพื่อเริ่มคุยกัน</p>
+</div>
+<button onclick="newQuestion()" class="primary">สุ่มคำถาม</button>
+
+<!-- 🧠 เพิ่มส่วนตอบคำถาม -->
+<div class="answer-box" style="margin-top: 20px;">
+  <h3>ตอบคำถามนี้</h3>
+  <label>เราตอบว่า:</label>
+  <input type="text" id="myAnswer" placeholder="คำตอบของเรา..."><br>
+
+  <label>แฟนตอบว่า:</label>
+  <input type="text" id="partnerAnswer" placeholder="คำตอบของแฟน..."><br>
+
+  <button onclick="saveAnswers()">บันทึกคำตอบ</button>
+</div>
+
+<!-- 💌 แสดงคำตอบทั้งหมด -->
+<div class="saved-answers">
+  <h3>คำตอบที่เคยตอบด้วยกัน</h3>
+  <ul id="answersList"></ul>
+</div>
+
 
     <div class="memory">
       <h3>เขียนข้อความถึงกัน</h3>
