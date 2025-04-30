@@ -29,30 +29,56 @@ const questions = [
     "อะไรทำให้ตัดสินใจเลือกคนนี้"
 ];
 
+// โหลดคำตอบเก่า
+window.onload = function () {
+  loadAnswers();
+};
+
 function newQuestion() {
   const q = questions[Math.floor(Math.random() * questions.length)];
   document.getElementById("question").textContent = q;
 }
 
-// 📝 ฟังก์ชันบันทึกคำตอบ
 function saveAnswers() {
   const q = document.getElementById("question").textContent;
   const my = document.getElementById("myAnswer").value.trim();
   const partner = document.getElementById("partnerAnswer").value.trim();
 
   if (q && (my || partner)) {
-    const li = document.createElement("li");
-    li.innerHTML = `<strong>คำถาม:</strong> ${q}<br>
-                    <strong>เราตอบ:</strong> ${my || "-"}<br>
-                    <strong>แฟนตอบ:</strong> ${partner || "-"}`;
-    document.getElementById("answersList").appendChild(li);
+    const answerObj = {
+      question: q,
+      myAnswer: my || "-",
+      partnerAnswer: partner || "-",
+      timestamp: new Date().toISOString()
+    };
 
-    // ล้างช่องกรอก
+    let allAnswers = JSON.parse(localStorage.getItem("deepTalkAnswers")) || [];
+    allAnswers.push(answerObj);
+    localStorage.setItem("deepTalkAnswers", JSON.stringify(allAnswers));
+
+    displayAnswer(answerObj);
+
+    // เคลียร์ช่อง
     document.getElementById("myAnswer").value = "";
     document.getElementById("partnerAnswer").value = "";
   } else {
     alert("กรุณากรอกคำตอบอย่างน้อยหนึ่งช่อง");
   }
+}
+
+function loadAnswers() {
+  const saved = JSON.parse(localStorage.getItem("deepTalkAnswers")) || [];
+  saved.forEach(answer => {
+    displayAnswer(answer);
+  });
+}
+
+function displayAnswer(answerObj) {
+  const li = document.createElement("li");
+  li.innerHTML = `<strong>คำถาม:</strong> ${answerObj.question}<br>
+                  <strong>เราตอบ:</strong> ${answerObj.myAnswer}<br>
+                  <strong>แฟนตอบ:</strong> ${answerObj.partnerAnswer}<br><hr>`;
+  document.getElementById("answersList").appendChild(li);
 }
 
 const startDate = new Date('2025-04-14'); // ตั้งวันคบกัน
