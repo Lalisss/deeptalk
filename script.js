@@ -76,8 +76,8 @@ function loadAnswers() {
 function displayAnswer(answerObj) {
   const li = document.createElement("li");
   li.innerHTML = `<strong>คำถาม:</strong> ${answerObj.question}<br>
-                  <strong>เราตอบ:</strong> ${answerObj.myAnswer}<br>
-                  <strong>แฟนตอบ:</strong> ${answerObj.partnerAnswer}<br><hr>`;
+                  <strong>พี่ตอบ:</strong> ${answerObj.myAnswer}<br>
+                  <strong>เบบี๋ตอบ:</strong> ${answerObj.partnerAnswer}<br><hr>`;
   document.getElementById("answersList").appendChild(li);
 }
 
