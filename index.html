@@ -1,57 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Heart to Heart</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart to Heart</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Heart to Heart</h1>
-    <p class="counter">เราอยู่ด้วยกันมา <span id="daysCount"></span> วันแล้วนะคะเบบี๋</p>
+    <div class="container">
+        <h1>Heart to Heart</h1>
+        <p id="question">คำถามจะปรากฏที่นี่</p>
+        <button id="newQuestion">สุ่มคำถาม</button>
 
-    <!-- เพลงถูกลบออก -->
-
-   <div class="question-box">
-  <p id="question">กดปุ่มเพื่อเริ่มคุยกัน</p>
-</div>
-<button onclick="newQuestion()" class="primary">สุ่มคำถาม</button>
-
-<!-- 🧠 เพิ่มส่วนตอบคำถาม -->
-<div class="answer-box" style="margin-top: 20px;">
-  <h3>ตอบคำถามนี้</h3>
-  <label>พี่ตอบว่า:</label>
-  <input type="text" id="myAnswer" placeholder="คำตอบของเรา..."><br>
-
-  <label>เบบี๋ตอบว่า:</label>
-  <input type="text" id="partnerAnswer" placeholder="คำตอบของแฟน..."><br>
-
-  <button onclick="saveAnswers()">บันทึกคำตอบ</button>
-</div>
-
-<!-- 💌 แสดงคำตอบทั้งหมด -->
-<div class="saved-answers">
-  <h3>คำตอบที่เคยตอบด้วยกัน</h3>
-  <ul id="answersList"></ul>
-</div>
-
-
-    <div class="memory">
-      <h3>เขียนข้อความถึงกัน</h3>
-      <textarea id="memoryInput" placeholder="เขียนความรู้สึกที่อยากบอก..."></textarea>
-      <button onclick="saveMemory()" class="save-btn">บันทึกความทรงจำ</button>
+        <div class="answers">
+            <div class="answer-box">
+                <h3>คำตอบของคุณ</h3>
+                <textarea id="myAnswer" placeholder="พิมพ์คำตอบของคุณ..."></textarea>
+            </div>
+            <div class="answer-box">
+                <h3>คำตอบของเรา</h3>
+                <p id="yourAnswer"></p>
+            </div>
+            <div class="answer-box">
+                <h3>คำตอบของอีกฝ่าย</h3>
+                <p id="partnerAnswer"></p>
+            </div>
+        </div>
     </div>
 
-    <div class="saved-memories">
-      <h3>Memory Box</h3>
-      <ul id="memoriesList"></ul>
-    </div>
-  </div>
-
-  <canvas id="confettiCanvas"></canvas>
-
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-  <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
