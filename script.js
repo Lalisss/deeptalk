@@ -3,15 +3,20 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
 
+// firebase config ของคุณ
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT_ID.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyCKfyiLocogfdMVAXiEw3MGzbhVSSEOWgs",
+  authDomain: "heart-to-heart-1bf52.firebaseapp.com",
+  projectId: "heart-to-heart-1bf52",
+  storageBucket: "heart-to-heart-1bf52.appspot.com",
+  messagingSenderId: "125062478813",
+  appId: "1:125062478813:web:e627ecad71562817961434",
+  measurementId: "G-1X1BWP8YMR"
 };
+
+// เริ่มต้น Firebase
+firebase.initializeApp(firebaseConfig);
+
 
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
